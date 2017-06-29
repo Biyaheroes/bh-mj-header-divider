@@ -1,0 +1,25 @@
+{
+  "name": "bh-mj-header-divider",
+  "description": "Biyaheroes MJML Header Divider Component",
+  "main": ".filter.js",
+  "authors": [
+    "Biyaheroes Developers <developers@biyaheroes.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "biyaheroes",
+    "mjml",
+    "focus",
+    "detail",
+    "component",
+    "bh-mj-focus-detail"
+  ],
+  "homepage": "https://github.com/Biyaheroes/bh-mj-header-divider",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
