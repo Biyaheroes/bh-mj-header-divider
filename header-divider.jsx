@@ -29,8 +29,8 @@
 
   @module-configuration:
 	{
-	  "package": "header-divider",
-	  "path": "header-divider/header-divider.jsx",
+	  "package": "bh-mj-header-divider",
+	  "path": "bh-mj-header-divider/header-divider.jsx",
 	  "file": "header-divider.jsx",
 	  "module": "header-divider",
 	  "author": "Biyaheroes Developers",
@@ -94,11 +94,11 @@ class HeaderDivider extends Component {
 					background-color={ mjAttribute ( "value-color" ) }
 					>
 				<Column 
-					width="30%"
+					width="70%"
 					background-color={ mjAttribute ( "label-color" ) }
 					>
 					<Text
-						font-size="11px"
+						font-size="16px"
 						font-weight="500"
 						letter-spacing="0.3px">
 						{ wichevr( mjAttribute( "title" ), mjAttribute( "label" ) ) }

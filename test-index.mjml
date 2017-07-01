@@ -1,0 +1,7 @@
+<mjml>
+	<mj-body>
+		<mj-container>
+			<mj-header-divider label="This is a header."/>
+		</mj-container>
+	</mj-body>
+</mjml>

@@ -2,7 +2,9 @@ yarn add \
 babel-runtime \ 
 jquery \ 
 mjml \ 
+mjml-column \ 
 mjml-core \ 
+mjml-text \ 
 react \ 
 wichevr \ 
 --save && \ 
