@@ -1,34 +1,29 @@
 {
-  "name": "bh-mj-header-divider",
-  "version": "0.0.0",
-  "description": "Biyaheroes MJML Header Divider Component",
-  "main": "header-divider.deploy.js",
-  "support": "header-divider.support.js",
-  "authors": [
-    "Biyaheroes Developers <developers@biyaheroes.com>",
-    "Robot Biyaheroes <robot@biyaheroes.com>",
-    "Vinse Vinalon <vinsevinalon@gmail.com>"
-  ],
-  "license": "MIT",
-  "keywords": [
-    "biyaheroes",
-    "mjml",
-    "focus",
-    "detail",
-    "component",
-    "bh-mj-focus-detail"
-  ],
-  "homepage": "https://github.com/Biyaheroes/bh-mj-header-divider",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": "^3.2.1",
-    "react": "^15.6.1",
-    "wichevr": "^0.10.0"
-  }
+	"name": "bh-mj-header-divider",
+	"version": "0.0.0",
+	"description": "Biyaheroes MJML Header Divider Component",
+	"main": "header-divider.deploy.js",
+	"support": "header-divider.support.js",
+	"authors": [
+		"Biyaheroes Developers <developers@biyaheroes.com>",
+		"Robot Biyaheroes <robot@biyaheroes.com>",
+		"Vinse Vinalon <vinsevinalon@gmail.com>"
+	],
+	"license": "MIT",
+	"keywords": [
+		"biyaheroes",
+		"mjml",
+		"focus",
+		"detail",
+		"component",
+		"bh-mj-focus-detail"
+	],
+	"homepage": "https://github.com/Biyaheroes/bh-mj-header-divider",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
 }
