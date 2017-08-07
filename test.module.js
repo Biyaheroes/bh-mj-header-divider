@@ -57,53 +57,52 @@
 	@end-include
 */
 
-const assert = require("should");
+const assert = require( "should" );
 
-//: @bridge:
-const fs = require("fs");
-const path = require("path");
-const same = require("looks-same");
-const scrshot = require("scrshot");
-//: @end-bridge
+//: @visual:
+const fs = require( "fs" );
+const kept = require( "kept" );
+const path = require( "path" );
+const same = require( "looks-same" );
+const scrshot = require( "scrshot" );
+//: @end-visual
 
-//: @bridge:
-describe("bh-mj-header-divider", () => {
-	let renderBase = path.resolve(__dirname, "render.base.png");
-	let renderShot = path.resolve(__dirname, "render.test.png");
-	describe("render based comparison", () => {
-		it("should be equal", (done) => {
-			same(renderBase, renderShot, { "strict": true }, (error, equal) => {
-				if (error instanceof Error) {
-					done(error);
+//: @visual:
+describe( "bh-mj-header-divider", ( ) => {
+	let renderBase = path.resolve( __dirname, "render.base.png" );
+	let renderShot = path.resolve( __dirname, "render.test.png" );
+	describe( "render based comparison", ( ) => {
+		it( "should be equal", ( done ) => {
+			same( renderBase, renderShot, { "strict": true }, ( error, equal ) => {
+				if( error instanceof Error ){
+					done( error );
 
-				} else {
-					assert.equal(equal, true);
+				}else if( equal ){
+					done( );
 
-					done();
+				}else{
+					done( new Error( "render image test not equal" ) );
 				}
-			});
-		});
+			} );
+		} );
+	} );
 
-		after(() => fs.unlinkSync(renderShot));
-	});
+	let componentBase = path.resolve( __dirname, "component.base.png" );
+	let componentShot = path.resolve( __dirname, "component.test.png" );
+	describe( "component based comparison", ( ) => {
+		it( "should be equal", ( done ) => {
+			same( componentBase, componentShot, { "strict": true }, ( error, equal ) => {
+				if( error instanceof Error ){
+					done( error );
 
-	let componentBase = path.resolve(__dirname, "component.base.png");
-	let componentShot = path.resolve(__dirname, "component.test.png");
-	describe("component based comparison", () => {
-		it("should be equal", (done) => {
-			same(componentBase, componentShot, { "strict": true }, (error, equal) => {
-				if (error instanceof Error) {
-					done(error);
+				}else if( equal ){
+					done( );
 
-				} else {
-					assert.equal(equal, true);
-
-					done();
+				}else{
+					done( new Error( "component image test not equal" ) );
 				}
-			});
-		});
-
-		after(() => fs.unlinkSync(componentShot));
-	});
-});
-//: @end-bridge
+			} );
+		} );
+	} );
+} );
+//: @end-visual

@@ -1,19 +1,19 @@
-require("graceful-fs").gracefulify(require("fs"));
+require( "graceful-fs" ).gracefulify( require( "fs" ) );
 
-const nchunk = require("nchunk");
-const path = require("path");
-const plough = require("plough");
-const webpack = require("webpack");
+const nchunk = require( "nchunk" );
+const path = require( "path" );
+const plough = require( "plough" );
+const webpack = require( "webpack" );
 
-const BowerResolvePlugin = require("bower-resolve-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BowerResolvePlugin = require( "bower-resolve-webpack-plugin" );
+const BundleAnalyzerPlugin = require( "webpack-bundle-analyzer" ).BundleAnalyzerPlugin;
 const ModuleConcatenationPlugin = webpack.optimize.ModuleConcatenationPlugin;
 
-module.exports = function build(parameter) {
-	parameter = parameter || {};
+module.exports = function build( parameter ){
+	parameter = parameter || { };
 
 	return {
-		"entry": "./header-divider.jsx",
+		"entry": "./header-divider.module.jsx",
 
 		"resolve": {
 			"descriptionFiles": [
@@ -30,7 +30,7 @@ module.exports = function build(parameter) {
 				"module",
 				"main"
 			],
-			"plugins": [new BowerResolvePlugin()]
+			"plugins": [ new BowerResolvePlugin( ) ]
 		},
 
 		"output": {
@@ -43,8 +43,7 @@ module.exports = function build(parameter) {
 			"rules": [
 				{
 					"test": /\.jsx$/,
-					"exclude": /(node_modules|bower_components)/,
-					"use": ["babel-loader"]
+					"use": [ "babel-loader" ]
 				},
 
 				{
@@ -59,15 +58,11 @@ module.exports = function build(parameter) {
 							"options": { "sourceMap": true }
 						},
 						{
-							"loader": "postcss-loader",
+							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						},
 						{
 							"loader": "sass-loader",
-							"options": { "sourceMap": true }
-						},
-						{
-							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						}
 					]
@@ -85,10 +80,6 @@ module.exports = function build(parameter) {
 							"options": { "sourceMap": true }
 						},
 						{
-							"loader": "postcss-loader",
-							"options": { "sourceMap": true }
-						},
-						{
 							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						}
@@ -97,7 +88,7 @@ module.exports = function build(parameter) {
 
 				{
 					"test": /\.(ttf|svg|eot|woff2?)$/,
-					"use": ["url-loader"]
+					"use": [ "url-loader" ]
 				}
 			]
 		},
@@ -109,16 +100,16 @@ module.exports = function build(parameter) {
 			"jQuery": "jquery"
 		},
 
-		"plugins": plough([
-			new BundleAnalyzerPlugin({
+		"plugins": plough( [
+			new BundleAnalyzerPlugin( {
 				"analyzerMode": "static",
 				"reportFilename": "report.support.html",
 				"openAnalyzer": false,
 				"generateStatsFile": true,
 				"statsFilename": "report.support.json"
-			}),
+			} ),
 
-			new ModuleConcatenationPlugin(),
+			new ModuleConcatenationPlugin( ),
 
 			nchunk(
 				"lodash",
@@ -126,10 +117,10 @@ module.exports = function build(parameter) {
 				"react",
 				"mjml,lodash,jquery,react"
 			)
-		]),
+		] ),
 
 		"devtool": "#source-map",
 
-		"stats": { "warnings": false }
+		"stats": { "warnings": true }
 	}
 };

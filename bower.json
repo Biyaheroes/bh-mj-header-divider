@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"description": "Biyaheroes MJML Header Divider Component",
 	"main": "header-divider.deploy.js",
-	"support": "header-divider.support.js",
+	"support": "header-divider.module.jsx",
 	"authors": [
 		"Biyaheroes Developers <developers@biyaheroes.com>",
 		"Robot Biyaheroes <robot@biyaheroes.com>",

@@ -1,17 +1,17 @@
-require("graceful-fs").gracefulify(require("fs"));
+require( "graceful-fs" ).gracefulify( require( "fs" ) );
 
-const nchunk = require("nchunk");
-const path = require("path");
-const plough = require("plough");
-const webpack = require("webpack");
+const nchunk = require( "nchunk" );
+const path = require( "path" );
+const plough = require( "plough" );
+const webpack = require( "webpack" );
 
-const BowerResolvePlugin = require("bower-resolve-webpack-plugin");
+const BowerResolvePlugin = require( "bower-resolve-webpack-plugin" );
 const DefinePlugin = webpack.DefinePlugin;
 const ModuleConcatenationPlugin = webpack.optimize.ModuleConcatenationPlugin;
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
-module.exports = function build(parameter) {
-	parameter = parameter || {};
+module.exports = function build( parameter ){
+	parameter = parameter || { };
 
 	return {
 		"entry": "./component.jsx",
@@ -31,7 +31,7 @@ module.exports = function build(parameter) {
 				"module",
 				"main"
 			],
-			"plugins": [new BowerResolvePlugin()]
+			"plugins": [ new BowerResolvePlugin( ) ]
 		},
 
 		"output": {
@@ -44,8 +44,7 @@ module.exports = function build(parameter) {
 			"rules": [
 				{
 					"test": /\.jsx$/,
-					"exclude": /(node_modules|bower_components)/,
-					"use": ["babel-loader"]
+					"use": [ "babel-loader" ]
 				},
 
 				{
@@ -60,15 +59,11 @@ module.exports = function build(parameter) {
 							"options": { "sourceMap": true }
 						},
 						{
-							"loader": "postcss-loader",
+							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						},
 						{
 							"loader": "sass-loader",
-							"options": { "sourceMap": true }
-						},
-						{
-							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						}
 					]
@@ -86,10 +81,6 @@ module.exports = function build(parameter) {
 							"options": { "sourceMap": true }
 						},
 						{
-							"loader": "postcss-loader",
-							"options": { "sourceMap": true }
-						},
-						{
 							"loader": "resolve-url-loader",
 							"options": { "sourceMap": true }
 						}
@@ -98,7 +89,7 @@ module.exports = function build(parameter) {
 
 				{
 					"test": /\.(ttf|svg|eot|woff2?)$/,
-					"use": ["url-loader"]
+					"use": [ "url-loader" ]
 				}
 			]
 		},
@@ -110,21 +101,22 @@ module.exports = function build(parameter) {
 			"jQuery": "jquery"
 		},
 
-		"plugins": plough([
-			new DefinePlugin({
+		"plugins": plough( [
+			new DefinePlugin( {
 				"process.env.NODE_ENV": '"production"'
-			}),
+			} ),
 
-			new ModuleConcatenationPlugin(),
+			new ModuleConcatenationPlugin( ),
 
 			nchunk(
 				"lodash",
 				"jquery",
 				"react",
 				"mjml,lodash,jquery,react",
-				{ "extension": "deploy.js" }),
+				{ "extension": "deploy.js" }
+			),
 
-			new UglifyJsPlugin({
+			new UglifyJsPlugin( {
 				"compress": {
 					"keep_fargs": true,
 					"keep_fnames": true,
@@ -137,11 +129,11 @@ module.exports = function build(parameter) {
 				},
 				"comments": false,
 				"sourceMap": true
-			})
-		]),
+			} )
+		] ),
 
 		"devtool": "#source-map",
 
-		"stats": { "warnings": false }
+		"stats": { "warnings": true }
 	}
 };
